@@ -2,17 +2,120 @@
 <html lang="da">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Software Sikkerhed</title>
+    <link rel="icon" href="../logo.png">
+
     <style>
-        body { font-family: sans-serif; padding: 40px; background-color: #2c3e50; color: white; }
-        h1 { color: #e67e22; }
-        a { color: #e67e22; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-left: 10px;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .back-link {
+            color: #e67e22;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            border: 2px solid #e67e22;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+        }
+        .back-link:hover {
+            background-color: #e67e22;
+            color: #ffffff;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #555c66;
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between; /* Justerer indhold og knap */
+            align-items: center;
+        }
+        .card h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+        .btn {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #e67e22;
+            transition: transform 0.1s ease-out;
+        }
+        .btn:hover {
+            transform: scale(1.03);
+        }
     </style>
 </head>
 <body>
-    <h1>Software Sikkerhed</h1>
-    <p>Dette er siden for faget Software Sikkerhed.</p>
 
-    <a href="/">Tilbage til forsiden</a>
+    <div class="header">
+        <h1>Software Sikkerhed</h1>
+        <a href="../" class="back-link">Tilbage til Forsiden</a>
+    </div>
+
+    <div class="grid-container">
+        
+        <div class="card">
+            <h3>Uge 36</h3>
+            <a href="uge36/" class="btn">Se Noter</a>
+        </div>
+
+        <div class="card">
+            <h3>Uge 37</h3>
+            <a href="uge37/" class="btn">Se Noter</a>
+        </div>
+
+        <div class="card">
+            <h3>Uge 38</h3>
+            <a href="uge38/" class="btn">Se Noter</a>
+        </div>
+
+        <div class="card">
+            <h3>Uge 39</h3>
+            <a href="uge39/" class="btn">Se Noter</a>
+        </div>
+
+        <div class="card">
+            <h3>Uge 41</h3>
+            <a href="uge41/" class="btn">Se Noter</a>
+        </div>
+        
+        <div class="card">
+            <h3>Uge 43</h3>
+            <a href="uge43/" class="btn">Se Noter</a>
+        </div>
+
+        <div class="card">
+            <h3>Uge 44</h3>
+            <a href="uge44/" class="btn">Se Noter</a>
+        </div>
+
+        </div>
+
 </body>
 </html>
