@@ -3,29 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Sikkerhed</title>
+    <title>Software Sikkerhed Noter</title>
     <link rel="icon" href="../logo.png">
 
     <style>
+        /* Grundlæggende styling */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #2c3e50;
             color: #ecf0f1;
+            line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
-        .header {
+
+        /* Container der holder sidebar og indhold */
+        .page-container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-left: 10px;
         }
-        .header h1 {
-            font-size: 2.5rem;
+
+        /* Sidebar (Menuen til venstre) */
+        .sidebar {
+            width: 300px; /* Fast bredde til menuen */
+            height: 100vh; /* Fuld højde af skærmen */
+            background-color: #34495e; /* Lidt lysere mørk farve */
+            padding: 20px;
+            position: sticky; /* Gør at den bliver på skærmen */
+            top: 0;
+            overflow-y: auto; /* Gør menuen scrollbar, hvis den er for lang */
+            box-sizing: border-box; /* Sørger for at padding er inkluderet i bredden */
+        }
+        .sidebar h2 {
+            color: #e67e22;
+            border-bottom: 1px solid #777;
+            padding-bottom: 5px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
             margin: 0;
         }
+        .sidebar li {
+            margin-bottom: 5px;
+        }
+        .sidebar a {
+            color: #ecf0f1;
+            text-decoration: none;
+            display: block;
+            padding: 8px 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+        .sidebar a:hover {
+            background-color: #555c66;
+            color: #e67e22;
+        }
+
+        /* Hovedindhold (Øvelserne til højre) */
+        .content {
+            flex: 1; /* Tager resten af pladsen */
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Styling til hver øvelse */
+        .exercise {
+            background-color: #555c66;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            /* Denne linje sikrer, at når man hopper til et ID, er der lidt luft i toppen */
+            scroll-margin-top: 20px; 
+        }
+        .exercise h2 {
+            color: #e67e22;
+            margin-top: 0;
+            border-bottom: 1px solid #777;
+            padding-bottom: 5px;
+        }
+        .exercise h3 {
+            color: #f1c40f;
+            margin-top: 25px;
+        }
+        
+        /* Tilbage-knap styling */
         .back-link {
+            display: inline-block;
             color: #e67e22;
             text-decoration: none;
             font-weight: bold;
@@ -33,89 +97,481 @@
             border: 2px solid #e67e22;
             border-radius: 5px;
             transition: all 0.2s ease;
+            margin-bottom: 30px;
         }
         .back-link:hover {
             background-color: #e67e22;
             color: #ffffff;
         }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        
+        /* Diverse styling til noter */
+        blockquote {
+            background-color: #2c3e50;
+            border-left: 5px solid #e67e22;
+            padding: 15px;
+            margin-left: 0;
+            margin-right: 0;
+            font-style: italic;
+            border-radius: 0 5px 5px 0;
         }
-        .card {
-            background-color: #555c66;
-            border-radius: 8px;
-            padding: 25px;
-            display: flex;
-            justify-content: space-between; /* Justerer indhold og knap */
-            align-items: center;
-        }
-        .card h3 {
-            margin: 0;
-            font-size: 1.5rem;
-            color: #ffffff;
-        }
-        .btn {
-            text-decoration: none;
-            color: white;
-            padding: 10px 20px;
+        pre, code {
+            background-color: #222;
+            color: #f0f0f0;
+            padding: 10px;
             border-radius: 5px;
-            font-weight: bold;
-            text-align: center;
-            background-color: #e67e22;
-            transition: transform 0.1s ease-out;
+            overflow-x: auto;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.95em;
         }
-        .btn:hover {
-            transform: scale(1.03);
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>Software Sikkerhed</h1>
-        <a href="../" class="back-link">Tilbage til Forsiden</a>
+    <div class="page-container">
+        
+        <nav class="sidebar">
+            <h2>Øvelser</h2>
+            <ul>
+                <li><a href="#uge36-1">Uge 36 - Find flagene på itslearning</a></li>
+                <li><a href="#uge36-2">Uge 36 - Hvad er software</a></li>
+                <li><a href="#uge36-3">Uge 36 - Hvad er sikkerhed</a></li>
+                <li><a href="#uge36-4">Uge 36 - Fagets læringsmål</a></li>
+                <li><a href="#uge36-5">Uge 36 - Øvelse med regular expressions</a></li>
+                
+                <li><a href="#uge37-1">Uge 37 - System og sikkerhedsmål</a></li>
+                <li><a href="#uge37-2">Uge 37 - Udarbejdelse af system mål</a></li>
+                <li><a href="#uge37-3">Uge 37 - Udarbejdelse af sikkerheds mål</a></li>
+                
+                <li><a href="#uge38-1">Uge 38 - System og sikkerhedsmål til web</a></li>
+                <li><a href="#uge38-2">Uge 38 - Risikovurdering af sikkerhedsmål</a></li>
+                <li><a href="#uge38-3">Uge 38 - Trusselsmodellering</a></li>
+                
+                <li><a href="#uge39-1">Uge 39 - Software sikkerhedens 3 søjler</a></li>
+                <li><a href="#uge39-2">Uge 39 - Forstå koden</a></li>
+                
+                <li><a href="#uge40-1">Uge 40 - Grundlæggende anvendelse af regex i C#</a></li>
+                <li><a href="#uge40-2">Uge 40 - Grundlæggende implementering af input validering</a></li>
+                <li><a href="#uge40-3">Uge 40 - Input validering i en web applikation</a></li>
+                <li><a href="#uge40-4">Uge 40 - Input validering med model binding</a></li>
+
+                <li><a href="#uge41-1">Uge 41 - Grundlæggende øvelse med domæneprimitiver</a></li>
+                
+                <li><a href="#uge43-1">Uge 43 - Exception som angrebsvektor</a></li>
+                <li><a href="#uge43-2">Uge 43 - Håndtering af exceptions i ASP.NET Core</a></li>
+                <li><a href="#uge43-3">Uge 43 - Grundlæggende taint-analyse med Snyk</a></li>
+                <li><a href="#uge43-4">Uge 43 - Taint-analyse med falsk positiv</a></li>
+
+                <li><a href="#uge44-1">Uge 44 - Introduktion til automatiseret testing</a></li>
+                <li><a href="#uge44-2">Uge 44 - Test af domæneprimitivers invarians</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+
+            <a href="../" class="back-link">Tilbage til Forsiden</a>
+            
+            <h1>Noter til Software Sikkerhed</h1>
+
+            <div class="exercise" id="uge36-1">
+                <h2>Øvelse 1 – Find flagene i itslearning-planerne</h2>
+                <h3>🧭 Information</h3>
+                <p>Formålet med denne øvelse er at give dig et overblik over itslearning-planerne og den information, du kan finde i dem.</p>
+                
+                <h3>🛠️ Instruktioner</h3>
+                <p>Der er gemt tre flag i itslearning-planerne. Hvert trin nedenfor giver en ledetråd til, hvor et flag er placeret. Din opgave er at:</p>
+                <ul>
+                    <li>📍 Lokalisere alle tre flag</li>
+                    <li>🔁 Konvertere flagene til deres oprindelige format</li>
+                    <li>🧠 Beskrive, hvordan du konverterede hvert flag til dets oprindelige format</li>
+                </ul>
+                <p><em>Bemærk: Flagene skal findes i deres oprindelige format, og du skal kunne forklare den tekniske fremgangsmåde til konverteringen.</em></p>
+
+                <h3>🎯 Ledetråde</h3>
+                <p><strong>Forberedelsen til den lektion, hvor et af emnerne er statisk kodeanalyse.</strong></p>
+                <pre><code>Uge41: 719d067b229178f03bcfa1da4ac4dede = Software</code></pre>
+                
+                <p><strong>En ressource til den sidste lektion inden arbejdet med eksamensprojektet begynder.</strong></p>
+                <pre><code>PHNjcmlwdD5BbGVydCgiZXIiKTwvc2NyaXB0Pg%3D%3D = &lt;script&gt;Alert("er")&lt;/script&gt;</code></pre>
+                
+                <p><strong>En refleksion efter, du har forberedt dig til undervisning i inputvalidering.</strong></p>
+                <pre><code>JiM2MDtkaXYmIzYyO0ZvcmFuZHJlbGlndCYjNjA7L2RpdiYjNjI7 = &amp;#60;div&amp;#62;Forandreligt&amp;#60;/div&amp;#62;</code></pre>
+
+                <h3>🔗 Nyttige værktøjer</h3>
+                <ul>
+                    <li>🔐 Base64 encode/decode</li>
+                    <li>🔤 HTML decode</li>
+                    <li>🌐 URL decode</li>
+                    <li>🔓 CrackStation (hash cracking)</li>
+                </ul>
+            </div>
+
+            <div class="exercise" id="uge36-2">
+                <h2>🧩 Øvelse 2 (Gruppeøvelse) – Hvad er software?</h2>
+                <h3>🧠 Instruktioner</h3>
+                <p>Sammen i gruppen skal I diskutere følgende spørgsmål:</p>
+                
+                <h4>❓ Hvad er software?</h4>
+                <blockquote>Software er application og funktioner der er opbygget til at indholde data og evner for bruger.</blockquote>
+
+                <h4>⚙️ Hvad er forskellen på software og hardware?</h4>
+                <blockquote>Hardware er kroppen der udøver handlinger, software er hjernen der finder ud af hvad der skal gøres.</blockquote>
+
+                <h4>Nævn fordele og ulemper ved software.</h4>
+                <p><strong>Fordel</strong></p>
+                <ul>
+                    <li>Maximere arbejds udbyttet.</li>
+                    <li>Underholdning.</li>
+                </ul>
+                <p><strong>Ulempe</strong></p>
+                <ul>
+                    <li>Intet software er uden bugs.</li>
+                    <li>Manglende sikkerhed kan lede til databrud.</li>
+                </ul>
+
+                <h4>🧱 Hvilke egenskaber bør en softwareimplementering have...</h4>
+                <p><strong>🔁 Nem at ændre</strong></p>
+                <blockquote>Low coupling high cohesion, Modulert, Object oriented programmering (OOP)</blockquote>
+                <p><strong>🔐 Sikker at ændre</strong></p>
+                <blockquote>Seperation af frontend og backend. Opdeling af data til froskellige server. Opbygge kode offline.</blockquote>
+                <p><strong>🧭 Tilgængelig og forståelig for skiftende udviklere</strong></p>
+                <blockquote>Læsebart kode. Kommentarer. Clean code.</blockquote>
+
+                <h4>✍️ Lav en punktliste med jeres bud på “egenskaber ved god software implementering”</h4>
+                <blockquote>Rollbacks. Du spiser en elefant en bid af gangen. Strukturert kode team, f.eks. SCRUM.</blockquote>
+            </div>
+
+            <div class="exercise" id="uge36-3">
+                <h2>🛡️ Øvelse 3 (Gruppeøvelse) – Hvad er sikkerhed?</h2>
+                <h3>🧠 Instruktioner</h3>
+                <p>Sammen i gruppen skal I diskutere følgende spørgsmål:</p>
+
+                <h4>❓ Hvad er sikkerhed?</h4>
+                <blockquote>Blokere trusler, minimere åbenhed til outsiders, forsikre at koden fungere optimalt(Der er ikke mange bugs).</blockquote>
+
+                <h4>📍 Hvornår er der behov for sikkerhed?</h4>
+                <p><strong>Vigtig:</strong></p>
+                <blockquote>Hvis din enheder er tilbundet et netværk eller internettet, hvis der er adgang til dine enheder for det offentlige.</blockquote>
+                <p><strong>Mindre vigtig:</strong></p>
+                <blockquote>Hvis din enheder er offline og ikke kan tilgås af uvedkommende, hvis din enhed ikke indeholder følsom data.</blockquote>
+                <p><strong>Diskutér, hvorfor behovet for sikkerhed er forskelligt:</strong></p>
+                <blockquote>Sikkerhed kan koste meget, din investering i sikkerhed skal være relativ til brugernes behov og evne. Jo mere sikkerhed du invstere i som bruger eller virksomhed, jo større bliver din omkostninger, dermed skal du man definere om et angreb ville koste mere, end hvad sikkerhedsomkostninger gør.</blockquote>
+                
+                <h4>⚖️ Hvad sker der, hvis man undervurderer behovet for sikkerhed?</h4>
+                <blockquote>Persondata kan blive leaket, man kan blive afpresset, funktioner i samfundet kan blive komprimeret, firma kan bryde sammen og arbejder kan miste arbejde, verden kan gå under.</blockquote>
+
+                <h4>✍️ Lav en kort liste med jeres bud på “hvad god sikkerhed indebærer”</h4>
+                <blockquote>Clean code. Organiseret teams. Brug af sikkerhed standerder CIS18, ISO27000, ASVS. Opsætning af et netværk, med separation mellem diverse enheder baseret på f.eks. Lokation eller funktion (Netværks segmantering). Opsætning af firewall. Opsætte handlingsplaner basert på diverse hændlser. Adminstere porte. Low privilege.</blockquote>
+            </div>
+
+            <div class="exercise" id="uge36-4">
+                <h2>🎯 Øvelse 4 (Gruppeøvelse) – Fagets læringsmål</h2>
+                <h3>ℹ️ Information</h3>
+                <p>Formålet med denne øvelse er, at alle studerende: Får en overordnet forståelse for indholdet i faget Software sikkerhed...</p>
+                <h3>🧠 Instruktioner</h3>
+                <p>📒 Noter alle besvarelser!</p>
+                
+                <h4>Læringsmål for System Sikkerhed</h4>
+                <p><strong>Viden:</strong> Den studerende har viden om: Generelle governance-principper og sikkerhedsprocedurer...</p>
+                <p><strong>Færdigheder:</strong> Den studerende kan: Anvende modforanstaltninger til beskyttelse af systemer...</p>
+                <p><strong>Kompetencer:</strong> Den studerende kan: Administrere enheder via kommandolinjen...</p>
+                
+                <h4>📅 Find og notér:</h4>
+                <p><strong>Afleveringsdato for eksamensrapporten i Software sikkerhed</strong></p>
+                <blockquote>29.11.25</blockquote>
+                <p><strong>Datoen for den mundtlige eksamination</strong></p>
+                <blockquote>9+10+11+12.12.25</blockquote>
+            </div>
+            
+            <div class="exercise" id="uge36-5">
+                <h2>🔍 Øvelse 5 (Individuel øvelse) – Regular expression</h2>
+                <h3>🧠 Instruktioner</h3>
+                <h4>✏️ Lav en regular expression, som kan detektere mønsteret for et dansk CPR-nummer.</h4>
+                <pre><code>^\d{6}-\d{4}$</code></pre>
+                
+                <h4>💻 Skriv et eksempel i C#, hvor du bruger din regex til at validere et CPR-nummer.</h4>
+                <pre><code>.</code></pre>
+                <p>(Du kan indsætte din C# kode her, hvis du vil)</p>
+
+                <h4>🌟 Bonus (valgfri udfordring)</h4>
+                <p>🧠 Tilføj logik, der tjekker om datoen i CPR-nummeret er en gyldig kalenderdato.</p>
+            </div>
+
+            <div class="exercise" id="uge37-1">
+                <h2>🧠 Øvelse 7 (Gruppeøvelse) – Fælles forståelse af system- og sikkerhedsmål</h2>
+                <h3>🧠 Diskussionsspørgsmål</h3>
+                <h4>🏦 Hvad kan vi lære af Öst-Götha Bank-røveriet?</h4>
+                <blockquote>Manglende adskillelse på opgaver og adgangskontrol</blockquote>
+                
+                <h4>💡 Bør sikkerhed integreres som en selvstændig feature i softwareudvikling?</h4>
+                <blockquote>Nej, sikkerhed bør ikke være et selvstændigt feature. Men det kan “outsource” til et fælles team, så der ens std. på tværs af organisationen. Dette fratager ikke udviklere fra deres ansvar ift. SbyD eller PbyD i source coden.</blockquote>
+                
+                <h4>🎯 Hvorfor er det vigtigt at kende system målene, når sikkerhed skal indtænkes?</h4>
+                <blockquote>Hvor system mål skal skabe værdi for et firma, skal sikkerhedsmål mitigere tab af værdi. Det er vigtigt at kende målene for at vide hvad systemet skal kunne, så man derefter kan fokusere på hvad systemet IKKE skal kunne.</blockquote>
+
+                <h4>🧱 Hvilket abstraktionsniveau bør systemmålene have?</h4>
+                <blockquote>Klare, præcise mål: systemmål bør være letforståelige og ikke nødvendigvis detaljerede. De skal give en klar forståelse af, hvad systemet skal kunne.</blockquote>
+                
+                <h4>🔐 Hvorfor er det en fordel at udlede sikkerhedsmål ud fra systemmålene?</h4>
+                <blockquote>Dette skaber en rød tråd mellem hvad der er værdiskabende for enduseren og CIA for virksomheden/udvikleren.</blockquote>
+            </div>
+
+            <div class="exercise" id="uge37-2">
+                <h2>🏛️ Øvelse 8 (Gruppeøvelse) – Udarbejdelse af systemmål for borger.dk</h2>
+                <h3>📝 Instruktioner</h3>
+                <p>Vælg en kontekst, fx en aktør, I vil fokusere på: <strong>Se og bestil feriepenge</strong></p>
+                
+                <h4>Definér minimum 3 systemmål med tilhørende brugstilfælde:</h4>
+                <p><strong>Tilgængelighed af Feriepenge</strong></p>
+                <blockquote>Brugstilfælde: Anmod om ferie som MA. Forudsætningen: MA er logget ind på borger.dk...</blockquote>
+                
+                <p><strong>Planlæg udbetaling af feriepenge</strong></p>
+                <blockquote>Brugstilfælde: Anmod om feriepenge som borger. Forudsætning: Borger er bevilliget til feriepenge...</blockquote>
+
+                <p><strong>Bestil feriepenge uden et MitID</strong></p>
+                <blockquote>Brugertilfæde: Borgeren ønsker at sende en besked og vedhæfte dokumenter...</blockquote>
+            </div>
+
+            <div class="exercise" id="uge37-3">
+                <h2>🔐 Øvelse 9 (Gruppeøvelse) – Udarbejdelse af sikkerhedsmål for borger.dk</h2>
+                <h3>📝 Instruktioner</h3>
+                <h4>🧠 Brainstorm misbrugstilfælde</h4>
+                <blockquote>MitM angreb ved sendelse af dokument og evt. ændring eller afsløring af personlige oplysninger...</blockquote>
+                <blockquote>Trusselaktører kan kontakte borgere og anvende social engineering...</blockquote>
+
+                <h4>🎯 Udarbejd sikkerhedsmål</h4>
+                <p><strong>1. Sikkerhedsmål: Brug af social engineering til at tilgå borgers bankkonto</strong></p>
+                <blockquote>Trusselsaktøren har henvendt sig til en borger...</blockquote>
+                
+                <p><strong>2. Sikkerhedsmål: Sikre, at alle data sendt fra borgerens side, er krypteret...</strong></p>
+                <blockquote>Trusselsaktøren kan udnytte systemets sårbarheder til at manipulere eller ændre data...</blockquote>
+            </div>
+
+            <div class="exercise" id="uge38-1">
+                <h2>🛒 Øvelse 11 – Udarbejd system- og sikkerhedsmål til webapplikation</h2>
+                <h3>📝 Instruktioner</h3>
+                <p>🚀 Start applikationen og besøg hjemmesiden.</p>
+                <p>🗒️ Identificer titler på 3 brugstilfælde...</p>
+                <p>🕵️‍♂️ Brainstorm og identificer mindst 3 misbrugstilfælde...</p>
+                <p>✍️ Udarbejd minimum 1 brugstilfælde detaljeret...</p>
+                <p>🔐 For hvert udarbejdet brugstilfælde, udarbejd minimum 1 misbrugstilfælde.</p>
+                <p><em>(Dine noter for denne øvelse mangler, men sektionen er klar)</em></p>
+            </div>
+
+            <div class="exercise" id="uge38-2">
+                <h2>⚖️ Øvelse 12 – Udarbejd risikovurdering til webapplikation</h2>
+                <h3>📝 Instruktioner</h3>
+                <h4>📊 Udarbejd en kvalitativ skala for konsekvens</h4>
+                <blockquote>Meget Høj, Høj, Medium, Lav, Meget Lav</blockquote>
+                
+                <h4>📈 Udarbejd en kvalitativ skala for sandsynlighed</h4>
+                <blockquote>Meget Sandsynligt, Sandsynligt, Medium Sandsynlighed, Usandsynligt, Meget Usansynligt</blockquote>
+                
+                <h4>🔢 Tilknyt en numerisk score...</h4>
+                <pre>
+Konsekvens/Sandsynlighed  Meget Lav(1)  Lav(2)  Medium(3) ...
+Meget Usandsynligt(1)      1             2       3         ...
+...
+</pre>
+                
+                <h4>💭 Refleksionsspørgsmål</h4>
+                <p><strong>Hvorfor er det vigtigt, at hver kvalitativ vurdering har en tilknyttet numerisk værdi?</strong></p>
+                <blockquote>For at gøre det målbart.</blockquote>
+                <p><strong>Kan ord som “katastrofalt” eller “kritisk” betyde det samme for forskellige personer?</strong></p>
+                <blockquote>Mangel på data, eller subjektiv prioteringer, kommer til at lede til et vudering der mangler objektivitet.</blockquote>
+                </div>
+
+            <div class="exercise" id="uge38-3">
+                <h2>🛡️ Øvelse 13 – Udarbejd trusselsmodellering til webapplikation</h2>
+                <h3>🛠️ STRIDE-modellen</h3>
+                <p><strong>Spoofing</strong></p>
+                <blockquote>Kunne lade sig gøre at admin kunne blive ramt af en phising email...</blockquote>
+                <p><strong>Tampering</strong></p>
+                <blockquote>Admin har adgang til databasen, de er i stand til at ændre priser...</blockquote>
+                <p><strong>Repudiation</strong></p>
+                <blockquote>Det ville værer godt at opsætte systemer, der nedskriver logs...</blockquote>
+                <p><strong>Information Disclosure</strong></p>
+                <blockquote>opstår, når følsomme oplysninger som kundedata utilsigtet...</blockquote>
+                <p><strong>Denial of Service</strong></p>
+                <blockquote>Man kunne potientelt lave en DDos angreb, der kunne overload server.</blockquote>
+                <p><strong>Elevation of Privilege</strong></p>
+                <blockquote>Hvis Admin er defineret med en token, kunne en normal bruger få admin rettigheder...</blockquote>
+
+                <h3>📝 Instruktioner</h3>
+                <p><strong>Identificer de vigtigste komponenter...</strong></p>
+                <blockquote>Frontend, backend, Db og Api</blockquote>
+                <p><strong>Udvælg ét misbrugstilfælde med høj risiko.</strong></p>
+                <blockquote>Aktør kan opnå 20% rabat hver gang opretter de en ny konto...</blockquote>
+            </div>
+
+            <div class="exercise" id="uge39-1">
+                <h2>🛠️ Øvelse 14 (Gruppeøvelse) – Udviklingsprocessen og Software sikkerhedens 3 søjler</h2>
+                <h3>💡 Spørgsmål</h3>
+                <p><strong>🤔 Hvorfor er risikostyring en integreret del af udviklingsprocessen?</strong></p>
+                <blockquote>Risikostyring er en naturlig del af udviklingen, fordi man under test og udvikling identificerer fejl og risici...</blockquote>
+                
+                <p><strong>⚙️ Hvordan håndteres risikostyring i praksis?</strong></p>
+                <blockquote>Forretningsmæssigt gennemfører man risikoanalyser... Teknisk vurderes systemet gennem trusselsmodellering...</blockquote>
+
+                <p><strong>📚 Hvilken ISO-standard kan anvendes til risikostyring?</strong></p>
+                <blockquote>ISO 27005 understøtter risikostyring ved at give en struktureret metode...</blockquote>
+                
+                </div>
+
+            <div class="exercise" id="uge39-2">
+                <h2>🧐 Øvelse 15 – Forstå koden</h2>
+                <h3>📝 Instruktioner</h3>
+                <p>📥 Klon repositoriet: https://github.com/mesn1985/missingDomain</p>
+                
+                <p><strong>🔍 Gennemgå koden og forsøg at forstå, hvad koden gør.</strong></p>
+                <blockquote>Det er en bank acoount program, den adder værdi til en account.</blockquote>
+                
+                <p><strong>🛡️ Vurder, om koden er sikker – og begrund jeres vurdering.</strong></p>
+                <blockquote>Dårlig navngivning skaber forvirring.</blockquote>
+            </div>
+
+            <div class="exercise" id="uge40-1">
+                <h2>Uge 40 - Grundlæggende anvendelse af regex i C#</h2>
+                <p><em>(Indhold mangler - klar til noter)</em></p>
+            </div>
+            
+            <div class="exercise" id="uge40-2">
+                <h2>Uge 40 - Grundlæggende implementering af input validering</h2>
+                <p><em>(Indhold mangler - klar til noter)</em></p>
+            </div>
+            
+            <div class="exercise" id="uge40-3">
+                <h2>Uge 40 - Input validering i en web applikation</h2>
+                <p><em>(Indhold mangler - klar til noter)</em></p>
+            </div>
+
+            <div class="exercise" id="uge40-4">
+                <h2>Uge 40 - Input validering med model binding</h2>
+                <p><em>(Indhold mangler - klar til noter)</em></p>
+            </div>
+
+            <div class="exercise" id="uge41-1">
+                <h2>🛡️ Øvelse 25 – Grundlæggende øvelse med domæneprimitiver</h2>
+                <h3>ℹ️ Information</h3>
+                <p>Formålet med denne øvelse er at give en grundlæggende introduktion til domæneprimitiver...</p>
+                
+                <h3>📝 Instruktioner</h3>
+                <p>🆕 Opret en ny .NET-konsolapplikation.</p>
+                <p>🔤 Opret et domæneprimitiv for fornavn...</p>
+                <p>🔤 Opret et domæneprimitiv for efternavn...</p>
+                <h3>🤔 Refleksionsspørgsmål</h3>
+                <p><strong>Hvordan kan brugen af domæneprimitiver bidrage til at sikre bedre softwarekvalitet og robusthed?</strong></p>
+                <p><em>(Dine svar mangler, men sektionen er klar)</em></p>
+            </div>
+
+            <div class="exercise" id="uge43-1">
+                <h2>🛡️ Øvelse 33 – Exception som angrebsvektor</h2>
+                <h3>📝 Instruktioner</h3>
+                <p>...Start applikationen, og verificer at den virker...</p>
+                <p><strong>📖 Læs exceptionen og stack trace, som bliver vist. Hvilken information får du?</strong></p>
+                <p><strong>🕵️ Stack tracen viser, at linje 52 og linje 151...</strong></p>
+                <pre><code>var sql = "INSERT INTO Orders (" +
+...
+$"'{order.CustomerId}','{order.EmployeeId}'...</code></pre>
+                
+                <h3>🤔 Refleksionsspørgsmål</h3>
+                <p><strong>Hvorfor er det farligt at vise en stack trace til slutbrugeren?</strong></p>
+                <blockquote>Afslører intern information (filnavne, SQL, frameworks). Hjælper angribere med at finde svage punkter...</blockquote>
+                
+                <p><strong>Hvordan kan manglende håndtering af exceptions føre til SQL Injection?</strong></p>
+                <blockquote>Ukontrollerede fejl kan vise databaseforespørgsler eller systeminfo...</blockquote>
+                
+                </div>
+
+            <div class="exercise" id="uge43-2">
+                <h2>🛡️ Øvelse 34 – Håndtering af exceptions i ASP.NET Core Applikationer</h2>
+                <h3>📝 Instruktioner</h3>
+                <p><strong>🧐 Notér dig, hvilken fejl der opstår... (første ændring)</strong></p>
+                <blockquote>Tidligere fik vi vist hele SQL-fejlbeskeden... Det er problematisk...</blockquote>
+                
+                <p><strong>🧐 Notér dig, hvilken fejl der opstår... (anden ændring)</strong></p>
+                <blockquote>Når fejlhåndteringen er aktiv, omdirigeres fejl til en specifik controller... Når du fjerner den, vises i stedet den faktiske serverfejl (500)...</blockquote>
+
+                <h3>🤔 Refleksionsspørgsmål</h3>
+                <p><strong>🛡️ Hvorfor er det vigtigt at skjule detaljerede fejlmeddelelser...</strong></p>
+                <blockquote>Detaljerede fejl kan afsløre systemoplysninger, som angribere kan udnytte...</blockquote>
+                
+                </div>
+
+            <div class="exercise" id="uge43-3">
+                <h2>🛡️ Øvelse 30 – Grundlæggende taint-analyse med Snyk</h2>
+                <h3>📝 Instruktioner</h3>
+                <p>📥 Klon projektet fra dette repository.</p>
+                <p><strong>📝 Notér, hvilket linjenummer SQL-injection sårbarheden bliver fundet på.</strong></p>
+                <blockquote>Homecontroller.cs sårbarheden står i linje 32</blockquote>
+                
+                <p><strong>🔍 Verificér i koden, at linjenummeret...</strong></p>
+                <blockquote>Så sårbarheden er korrekt identificeret på linje 32...</blockquote>
+                
+                <h3>🤔 Refleksionsspørgsmål</h3>
+                <p><strong>🤔 Hvordan hjælper taint-analyse med at identificere sikkerhedsrisici?</strong></p>
+                <blockquote>Taint-analyse hjælper med at identificere, hvordan brugerinput (source) bevæger sig gennem systemet...</blockquote>
+                
+                </div>
+
+            <div class="exercise" id="uge43-4">
+                <h2>🛡️ Øvelse 31 – Taint-analyse med falsk positiv</h2>
+                <h3>📝 Instruktioner</h3>
+                <p>I klassen HomeController, opret en privat metode til validering...</p>
+                <p><strong>Notér, om SQL Injection stadig detekteres som en sårbarhed.</strong></p>
+                <p><em>(Dit svar mangler, men sektionen er klar)</em></p>
+                
+                <h3>🤔 Refleksionsspørgsmål</h3>
+                <p><strong>Hvordan påvirker falske positiver tilliden til automatiserede analyseværktøjer?</strong></p>
+                <blockquote>Det kan værer med til at skabe forvirring... Det kan også lede til alarmtræthed...</blockquote>
+                
+                <p><strong>Hvorfor er manuel kodegennemgang nødvendig...?</strong></p>
+                <blockquote>Manuel kodegennemgang kigger kun teknisk, og kan ikke nøvendigvist gendkende det fulde billede...</blockquote>
+                
+                </div>
+
+            <div class="exercise" id="uge44-1">
+                <h2>🛡️ Øvelse 35 – Introduktion til automatiseret testing og unit tests</h2>
+                <h3>📝 Instruktioner</h3>
+                <p><strong>📚 Gennemfør denne tutorial...</strong></p>
+                
+                <p><strong>🤔 Reflekter over, hvordan antallet og typen af testcases kan påvirke...</strong></p>
+                <blockquote>Tutorialen viste, at flere og bedre testcases fanger flere fejl. Den første test IsPrime(1) bestod, selvom metoden var ufuldstændig...</blockquote>
+                
+                <p><strong>🧠 Beskriv din forståelse af Test Driven Development (TDD)...</strong></p>
+                <blockquote>TDD er en "Rød-Grøn-Refaktor" cyklus, som vi fulgte præcist: Rød: Vi skrev testen IsPrime_InputIs1_ReturnFalse først. Den fejlede...</blockquote>
+                
+                <p><strong>📊 Sammenlign den testtype, du har arbejdet med...</strong></p>
+                <blockquote>Testen i tutorialen var en Unit Test. Sammenligning: En unit test tester den mindste, isolerede del af koden...</blockquote>
+                
+                <p><strong>❓ Diskutér, hvorfor mange udviklingsteams undlader at anvende unit tests...</strong></p>
+                <blockquote>Mange teams undlader unit tests primært på grund af tidspres...</blockquote>
+
+                <h3>🤔 Refleksionsspørgsmål</h3>
+                <p><strong>🛠️ Hvordan kan automatiserede tests som unit tests forbedre softwarekvalitet...?</strong></p>
+                <blockquote>Automatiserede tests forbedrer kvaliteten ved at fange fejl (regressioner) øjeblikkeligt...</blockquote>
+                
+                </div>
+
+            <div class="exercise" id="uge44-2">
+                <h2>🛡️ Øvelse 36 – Test af domæneprimitivers invarians</h2>
+                <h3>📝 Instruktioner</h3>
+                <p>🧩 Opret en solution...</p>
+                <p>📂 Flyt hele Opgave 26 projektmappen...</p>
+                <p>✅ Lav i testklassen en testmetode, der validerer... (positiv test?)</p>
+                <p>❌ Lav i testklassen en testmetode, der validerer, at der bliver kastet en exception... (negativ test?)</p>
+                
+                <h3>🤔 Refleksionsspørgsmål</h3>
+                <p><em>(Dine svar mangler, men sektionen er klar)</em></p>
+            </div>
+
+        </main>
     </div>
-
-    <div class="grid-container">
-        
-        <div class="card">
-            <h3>Uge 36</h3>
-            <a href="uge36/" class="btn">Se Noter</a>
-        </div>
-
-        <div class="card">
-            <h3>Uge 37</h3>
-            <a href="uge37/" class="btn">Se Noter</a>
-        </div>
-
-        <div class="card">
-            <h3>Uge 38</h3>
-            <a href="uge38/" class="btn">Se Noter</a>
-        </div>
-
-        <div class="card">
-            <h3>Uge 39</h3>
-            <a href="uge39/" class="btn">Se Noter</a>
-        </div>
-
-        <div class="card">
-            <h3>Uge 41</h3>
-            <a href="uge41/" class="btn">Se Noter</a>
-        </div>
-        
-        <div class="card">
-            <h3>Uge 43</h3>
-            <a href="uge43/" class="btn">Se Noter</a>
-        </div>
-
-        <div class="card">
-            <h3>Uge 44</h3>
-            <a href="uge44/" class="btn">Se Noter</a>
-        </div>
-
-        </div>
 
 </body>
 </html>
